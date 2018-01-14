@@ -1,0 +1,13 @@
+version: 2
+jobs:
+    build:
+        docker:
+            - image: terrorjack/vanilla:circleci
+        steps:
+            - run:
+                name: Create artifact
+                command: |
+                    mkdir artifacts
+                    echo hello world > artifacts/out.txt
+            - store_artifacts:
+                path: ./artifacts
